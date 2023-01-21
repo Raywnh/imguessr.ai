@@ -36,20 +36,25 @@ function App() {
             <i className="fa fa-anchor padding-64 text-red"></i>
           </div>
         </div>
-      </div>
 
-      {/* Footer */}
-      <footer className="container padding-64 center opacity">
-        <div className="xlarge padding-32">
-          <i className="fa fa-facebook-official hover-opacity"></i>
-          <i className="fa fa-instagram hover-opacity"></i>
-          <i className="fa fa-snapchat hover-opacity"></i>
-          <i className="fa fa-pinterest-p hover-opacity"></i>
-          <i className="fa fa-twitter hover-opacity"></i>
-          <i className="fa fa-linkedin hover-opacity"></i>
+        <div className="container black center opacity padding-64">
+          <h1 className="margin xlarge">Quote of the day: live life</h1>
         </div>
-        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-      </footer>
+
+        {/* Footer */}
+        <footer className="container padding-64 center opacity">
+          <div className="xlarge padding-32">
+            <i className="fa fa-facebook-official hover-opacity"></i>
+            <i className="fa fa-instagram hover-opacity"></i>
+            <i className="fa fa-snapchat hover-opacity"></i>
+            <i className="fa fa-pinterest-p hover-opacity"></i>
+            <i className="fa fa-twitter hover-opacity"></i>
+            <i className="fa fa-linkedin hover-opacity"></i>
+          </div>
+          <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+        </footer>
+      </div>
+     
     </div>
   );
 
