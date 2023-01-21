@@ -5,6 +5,7 @@ function App() {
   return (
     <div className="App">
       <h1>Hello World</h1>
+      <img src=".\public\ms-icon-310x310.png" alt="logo"></img>
     </div>
   );
 }
