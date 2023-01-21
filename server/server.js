@@ -6,7 +6,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const configuration = new Configuration({
-  apiKey: "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"
+  apiKey: process.env.OPENAI_KEY
 });
 const openai = new OpenAIApi(configuration);
 
@@ -18,14 +18,13 @@ app.use(cors());
 // Set up the DALL-E endpoint
 app.post("/image", async (req, res) => {
   // Get the prompt from the request
-  const { prompt } = req.body;
-
   // Generate image from prompt
   const response = await openai.createImage({
-    prompt: prompt,
+    prompt: req.body.prompt,
     n: 1,
     size: "1024x1024",
   });
+
   // Send back image url
   res.send(response.data.data[0].url);
 });
