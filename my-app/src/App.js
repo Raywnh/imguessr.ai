@@ -1,10 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import Image from './components/Image';
 
 function App() {
+  // Fetch image url and render it 
+  
   return (
     <div className="App">
-      <h1>Hello World</h1>  
+      <div className="image-container">
+        <Image></Image>
+      </div>
+     
     </div>
   );
 }
