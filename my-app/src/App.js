@@ -36,7 +36,7 @@ function App() {
         {/* Footer */}
         <footer className="container padding-64 center opacity">
           <p>Made by
-            <a href="https://github.com/rayzhou4" target="_blank"> Ray Z</a> · 
+            <a href="https://github.com/rayzhou4" target="_blank">Ray Z</a> · 
             <a href="https://github.com/Raywnh">Ray H</a> ·
             <a href="https://github.com/migies12">Miguel M</a> ·  
             <a href="https://github.com/AndyJLi0">Andy L</a>
