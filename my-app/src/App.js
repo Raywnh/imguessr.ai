@@ -31,27 +31,16 @@ function App() {
               Guess the prompt in 60 seconds to win!
             </p>
           </div>
-
-          <div className="third center">
-            <i className="fa fa-anchor padding-64 text-red"></i>
-          </div>
-        </div>
-
-        <div className="container black center opacity padding-64">
-          <h1 className="margin xlarge">Quote of the day: live life</h1>
-        </div>
+        </div>       
 
         {/* Footer */}
         <footer className="container padding-64 center opacity">
-          <div className="xlarge padding-32">
-            <i className="fa fa-facebook-official hover-opacity"></i>
-            <i className="fa fa-instagram hover-opacity"></i>
-            <i className="fa fa-snapchat hover-opacity"></i>
-            <i className="fa fa-pinterest-p hover-opacity"></i>
-            <i className="fa fa-twitter hover-opacity"></i>
-            <i className="fa fa-linkedin hover-opacity"></i>
-          </div>
-          <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+          <p>Made by
+            <a href="https://github.com/rayzhou4" target="_blank"> Ray Z</a> · 
+            <a href="https://github.com/Raywnh">Ray H</a> ·
+            <a href="https://github.com/migies12">Miguel M</a> ·  
+            <a href="https://github.com/AndyJLi0">Andy L</a>
+          </p>
         </footer>
       </div>
      
