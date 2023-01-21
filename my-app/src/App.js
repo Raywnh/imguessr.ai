@@ -1,10 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import Image from './components/Image';
+import React, { useRef, useState } from 'react';
 
 function App() {
   // Fetch image url and render it 
-  
+  const [image, setImage] = useState("");
+  const inputRefAnswer = useRef();
+
   return (
       <div>
         {/* Header */}
@@ -69,7 +72,17 @@ function App() {
           <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
         </footer>
       </div>
+     
+    </div>
   );
+
+  function onSubmit() {
+    const answer = inputRefAnswer.current.value;
+    
+    // Fetch the correct answer from backend 
+
+    //
+  }
 }
 
 export default App;
