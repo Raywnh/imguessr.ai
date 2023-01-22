@@ -1,7 +1,9 @@
 import './Game.css';
 
-function app(){
+function game(){
     return (
         <div>Hello</div>
     )
 };
+
+export default game
