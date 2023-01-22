@@ -2,7 +2,16 @@ import './Game.css';
 
 function game(){
     return (
-        <div>Hello</div>
+        <div>
+        <header>
+        <meta charset="UTF-8"/>
+        <title>Game</title>
+      </header>
+
+      <body>
+        hello
+      </body>
+      </div>
     )
 };
 
