@@ -4,7 +4,7 @@ function game(props) {
   return (
     <div>
       <div className="gamePage sage">
-        <div class=" mustard padding-16 content">   
+        <div class=" mustard padding-16 content" id="game-box">   
         <button
           className="button sage padding-large large margin"
           id="normalButton"
@@ -23,7 +23,7 @@ function game(props) {
           width="96"
           visible={true}
         /> */}
-        <img src={props.imageData.link}></img>
+        <img id="generatedImage" src={props.imageData.link}></img>
         </div>
         <div className="text-container">
           <label className="text"> your guess here:</label>
