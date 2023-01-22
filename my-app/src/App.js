@@ -124,8 +124,16 @@ function App() {
       await fetch('/image/' + pages, {
       }).then((res) => res.json()
       ).then ((data) => setImages((oldImages) => [...oldImages, data]))
+      
+      setTimeout(() => {
+        count++
+        setImagePointer(count)
+      }, 5000)
 
-      count++
+      await fetch('/image/' + pages, {
+      }).then((res) => res.json()
+      ).then ((data) => setImages((oldImages) => [...oldImages, data]))
+      
     }
   }
   // function to take in user input to compare with the image's word value, 
