@@ -1,6 +1,2 @@
 POST http://localhost:8080/image
 Content-Type: application/json
-
-{   
-    "prompt": "House"
-}
