@@ -1,5 +1,5 @@
 import "./App.css";
-
+import { RotatingLines} from 'react-loader-spinner'
 function game(props) {
   return (
     <div>
@@ -15,6 +15,13 @@ function game(props) {
         {(props.pages===1)? (<h1>Normal Mode</h1>) : ((props.pages===2)? <h1>Hard Mode</h1> : <></>)}
         <button className="start-button" onClick={props.onStart}>Start</button>
         <div className="realGame">
+        {/* <RotatingLines
+          strokeColor="grey"
+          strokeWidth="5"
+          animationDuration="0.75"
+          width="96"
+          visible={true}
+        /> */}
         <img src={props.imageData.link}></img>
         </div>
         <div className="text-container">

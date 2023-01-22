@@ -57,7 +57,7 @@ function App() {
                   Normal
                 </button>
                 <p> or </p>
-                <button className="button sage">
+                <button className="button sage" onClick={goToHard}>
                   Extremely Hard
                 </button>
               </div>
