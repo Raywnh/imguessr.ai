@@ -51,13 +51,13 @@ function App() {
               <div>
                     <button
                   className="button sage"
-                  id="normalButton"
                   onClick={goToNormal}
                 >
                   Normal
                 </button>
                 <p> or </p>
-                <button className="button sage">
+                <button className="button sage"
+                onClick={goToHard}>
                   Extremely Hard
                 </button>
               </div>
