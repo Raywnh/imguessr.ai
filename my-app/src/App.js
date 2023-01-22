@@ -14,13 +14,13 @@ function App() {
       <header className="container red center">
         <h1 className="margin jumbo">IMGUESSR.io</h1>
         <p className="xlarge">Choose your difficulty:</p>
-        <button className="button dark-yellow padding-large large margin-top"
+        <button className="button dark-yellow padding-large large margin"
         id="normalButton">Normal</button>
-        <button className="button dark-yellow padding-large large margin-top">Extremely Hard</button>
+        <button className="button dark-yellow padding-large large margin">Extremely Hard</button>
       </header>
 
       {/* First Grid */}
-      <div className="row-padding padding-64 container">
+      <div className="row-padding padding-32 container">
         <div className="content">
           <div className="twothird">
             <h1>Difficulties Explained</h1>
@@ -32,8 +32,7 @@ function App() {
               Guess the prompt in 60 seconds to win!
             </p>
           </div>
-        </div>       
-
+        </div>
         {/* Footer */}
         <footer className="container padding-64 center opacity">
           <p>
@@ -44,6 +43,10 @@ function App() {
      
     </div>
   );
+
+  document.getElementById("normalButton").addEventListener("click", function(){
+    window.location.assign("./Game.js");
+  });
 
   function onSubmit() {
     const answer = inputRefAnswer.current.value;
