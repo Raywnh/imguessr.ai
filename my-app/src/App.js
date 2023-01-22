@@ -5,11 +5,11 @@ import React, { useRef, useState } from "react";
 import Game from "./Game";
 
 function App() {
-  // Fetch image url and render it 
+  // Fetch image url and render it
   const [imageData, setImageData] = useState({});
   const inputRefAnswer = useRef();
-  const [pages, setPages] = useState(0)
- 
+  const [pages, setPages] = useState(0);
+
   return (
     <div>
       {/* Header */}
@@ -81,7 +81,7 @@ function App() {
   );
 
   function goBack() {
-    setPages(0)
+    setPages(0);
   }
 
   function goToNormal() {
@@ -109,7 +109,7 @@ function App() {
   }
 
   function submit() {
-    console.log(imageData)
+    console.log(imageData);
   }
 }
 
