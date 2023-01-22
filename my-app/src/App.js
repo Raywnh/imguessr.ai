@@ -2,7 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import Image from './components/Image';
 import React, { useRef, useState } from 'react';
-import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Game from './Game'
 
 function App() {
@@ -43,7 +42,6 @@ function App() {
           </p>
         </footer>
       </div>:<Game></Game>}
-      
       </div>
     
   );
