@@ -6,11 +6,11 @@ import Game from "./Game";
 
 function App() {
   // Fetch image url and render it
-  const [imageData, setImageData] = useState({});
   const inputRefAnswer = useRef();
   const [pages, setPages] = useState(0);
   const [started, setStarted] = useState(false)
   const [images, setImages] = useState([])
+  const [imagePointer, setImagePointer] = useState(0)
   
   return (
     <div>
@@ -87,7 +87,7 @@ function App() {
         </div>
       ) : (
         <Game goBack={goBack} onSubmit={onSubmit} inputRefAnswer={inputRefAnswer}
-              onStart={onStart} imageData={imageData} pages={pages} started={started}></Game>
+              onStart={onStart} pages={pages} started={started} test={test} imagePointer={imagePointer}  images={images}></Game>
       )}
     </div>
   );
@@ -108,34 +108,34 @@ function App() {
     setStarted(!started)
     
     if (!started) {
-      let imageCount = 0
-
-      while (imageCount < 10) {
-        
-        await fetch('/image/' + pages, {
-        }).then((res) => res.json()
-        ).then ((data) => setImageData(data))
-        
-        setImages(oldImages => {return [...oldImages, imageData.link]})
-        
-        setTimeout(() => {
-          imageCount++
-          console.log(images)
-        }, 2000)
-      
-      }
+      await generate()
     }
     else {
       window.location.reload(false)
     }
 
   }
+
+  function test() {
+    console.log(images)
+  }
+
+  async function generate() {
+    let count = 1
+    while (count < 10) {
+      await fetch('/image/' + pages, {
+      }).then((res) => res.json()
+      ).then ((data) => setImages((oldImages) => [...oldImages, data]))
+
+      count++
+    }
+  }
   function onSubmit() {
     const answer = inputRefAnswer.current.value
 
     if (answer === null) return
 
-    if (answer.toLowerCase() === imageData.word.toLowerCase()) {
+    if (images[imagePointer].word && answer.toLowerCase() === images[imagePointer].word.toLowerCase()) {
       console.log(true)
       document.body.style.backgroundColor = 'rgb(' + 114 + ',' + 214 + ',' + 140 + ')'
 
@@ -150,7 +150,7 @@ function App() {
         document.body.style.backgroundColor = "white"
       }, 2000)
     }
-    console.log(imageData.word)
+    console.log(images[imagePointer].word)
     inputRefAnswer.current.value = null
   }
 

@@ -1,10 +1,11 @@
 import "./App.css";
-//nimport { RotatingLines} from 'react-loader-spinner'
+import { RotatingLines} from 'react-loader-spinner'
 function game(props) {
   return (
     <div>
       <div className="gamePage sage">
         <div className=" mustard padding-16 content">   
+        <button onClick={props.test}>adf</button>
         <button
           className="button sage padding-large large margin"
           id="normalButton"
@@ -16,14 +17,13 @@ function game(props) {
         {(props.pages===1)? (<h1>Normal Mode</h1>) : ((props.pages===2)? <h1>Hard Mode</h1> : <></>)}
         <button className="start-button sage button" onClick={props.onStart}>{!props.started? <h1>Start</h1> : <h1>End</h1>}</button>
         <div className="realGame">
-        {/* <RotatingLines
+        {props.images[props.imagePointer] === undefined? 
+        <RotatingLines
           strokeColor="grey"
           strokeWidth="5"
           animationDuration="0.75"
           width="96"
-          visible={true}
-        /> */}
-        <img id="generatedImage" src={props.imageData.link}></img>
+          visible={true}/> : <img id="generatedImage" src={props.images[props.imagePointer].link}></img>}
         </div>
         <div className="text-container">
           <label className="text"> your guess here:</label>
