@@ -6,7 +6,6 @@ function game(props) {
       {/* Game Grid */}
       <div className="gamePage sage">
         <div className=" mustard padding-16 content" id="game-box">   
-        <button onClick={props.test}>adf</button>
         <button
           className="button sage padding-large large margin"
           id="normalButton"

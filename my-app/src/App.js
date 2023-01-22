@@ -114,9 +114,7 @@ function App() {
 
   }
 
-  function test() {
-    console.log(images)
-  }
+
 
   async function generate() {
     let count = 1
