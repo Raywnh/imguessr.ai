@@ -1,11 +1,12 @@
 import "./App.css";
-import { RotatingLines} from 'react-loader-spinner'
+//nimport { RotatingLines} from 'react-loader-spinner'
 function game(props) {
   return (
     <div>
-      <div className="gamePage">    
+      <div className="gamePage sage">
+        <div class=" mustard padding-16 content">   
         <button
-          className="button dark-yellow padding-large large margin"
+          className="button sage padding-large large margin"
           id="normalButton"
           onClick={props.goBack}
         >
@@ -13,7 +14,7 @@ function game(props) {
         </button>
         
         {(props.pages===1)? (<h1>Normal Mode</h1>) : ((props.pages===2)? <h1>Hard Mode</h1> : <></>)}
-        <button className="start-button" onClick={props.onStart}>Start</button>
+        <button className="start-button sage button" onClick={props.onStart}>Start</button>
         <div className="realGame">
         {/* <RotatingLines
           strokeColor="grey"
@@ -27,7 +28,32 @@ function game(props) {
         <div className="text-container">
           <label className="text"> your guess here:</label>
           <input ref={props.inputRefAnswer} className="textInput" type="text" name="text" size="30" />
-          <button onClick={props.onSubmit} className="answer-button">Enter</button>
+          <button onClick={props.onSubmit} className="answer-button button sage">Enter</button>
+        </div>
+        <footer className="container padding-32 center opacity">
+            <p>Made by{"  "} </p>
+              
+              <a href="https://github.com/rayzhou4" target="_blank">
+              <img src={require('./assets/git.png')} alt="Ray Z" id="logo"/>
+              <p>Ray Z</p>
+              </a>{" "}
+              ·{" "}
+              <a href="https://github.com/Raywnh" target="_blank">
+              <img src={require('./assets/git.png')} alt="Ray Z" id="logo"/>
+              <p>Ray H</p>
+              </a>{" "}
+              ·{" "}
+              <a href="https://github.com/migies12" target="_blank">
+              <img src={require('./assets/git.png')} alt="Ray Z" id="logo"/>
+              <p>Miguel M</p>
+              </a>{" "}
+              ·{" "}
+              <a href="https://github.com/AndyJLi0" target="_blank">
+              <img src={require('./assets/git.png')} alt="Ray Z" id="logo"/>
+              <p>Andy L</p>
+              </a>
+
+          </footer>
         </div>
       </div>
     </div>
