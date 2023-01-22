@@ -14,9 +14,9 @@ function game(props) {
         <div className="realGame">
         {!props.started? <></> : props.images[props.imagePointer] === undefined?
           <TailSpin
-            height="80"
-            width="80"
-            color="#4fa94d"
+            height="120"
+            width="120"
+            color="#71a7c8"
             ariaLabel="tail-spin-loading"
             radius="1"
             wrapperStyle={{}}
@@ -25,8 +25,7 @@ function game(props) {
             className="spinner"/> : <img id="generatedImage" src={props.images[props.imagePointer].link}></img>}
         </div>
         <div className="text-container">
-          <label className="text comicSans" > your guess here:</label>
-          <input ref={props.inputRefAnswer} className="textInput" type="text" name="text" size="30" />
+          <input placeholder="Guess the Prompt!" ref={props.inputRefAnswer} className="textInput" type="text" name="text" size="30" />
           <button onClick={props.onSubmit} className="answer-button button sage">Enter</button>
         </div>
         {/* Footer */}

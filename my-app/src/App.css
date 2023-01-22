@@ -858,6 +858,9 @@ footer{
   align-items: center;}
 .realGame{
   display: flexbox;
+  align-items: center;
+  flex-direction: column;
+  padding: 64px;
 }
 #generatedImage{
   border-radius: 4px;
@@ -866,7 +869,11 @@ footer{
   width: 450 px;
 }
 
-.comicSans {
+.textInput{
+  border-radius: 6.25em;
+}
+.textInput::placeholder{
+  font-size: 18px;
+  text-align: center;
   font-family: Comic Sans MS;
 }
-
