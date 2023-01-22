@@ -16,6 +16,8 @@ const openai = new OpenAIApi(configuration);
 
 var words = ["Plane", "House", "Horse", "Dog", "Cat"]
 
+var adjs = ["good", "new", "first", "last", "long", "great", "little", "old", "big", "small", "green", "red", "happy","large"];
+//var words = ["Plane", "House", "Horse", "Dog", "Cat"]
 // Set up the server
 app.use(bodyParser.json());
 app.use(cors());
@@ -34,8 +36,9 @@ const Word = require("./models/words")
 // Set up the DALL-E endpoint
 app.get("/image/:mode", async (req, res) => {
   var random = Math.floor(Math.random() * words.length)
-  var randomWord = words[random]
-  
+  var randomAdj = Math.floor(Math.random() * adjs.length)
+  var randomWord = adjs[randomAdj] + ' ' + words[random]
+
   // Get the prompt from the request
   // Generate image from prompt
   const response = await openai.createImage({
