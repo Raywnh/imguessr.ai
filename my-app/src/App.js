@@ -23,13 +23,13 @@ function App() {
         >
           Normal
         </button>
-        <button className="button dark-yellow padding-large large margin">
+        <button className="button dark-yellow padding-large large margin" onClick={goToHard}>
           Extremely Hard
         </button>
       </header>
 
       {/* First Grid */}
-      {pages == 0 ? (
+      {pages === 0 ? (
         <div className="row-padding padding-64 container">
           <div className="content">
             <div className="twothird">
@@ -75,10 +75,14 @@ function App() {
         </div>
       ) : (
         <Game goBack={goBack} onSubmit={onSubmit} inputRefAnswer={inputRefAnswer}
-              onStart={onStart} imageData={imageData}></Game>
+              onStart={onStart} imageData={imageData} pages={pages}></Game>
       )}
     </div>
   );
+      
+  function goToHard() {
+    setPages(2)
+  }
 
   function goBack() {
     setPages(0)
@@ -89,8 +93,16 @@ function App() {
   }
 
   async function onStart() {
-    
-    await fetch('/image').then((res) => res.json()
+   
+    await fetch('/image/' + pages, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        mode: pages
+      })
+    }).then((res) => res.json()
     ).then ((data) => setImageData(data))
 
   }
@@ -99,18 +111,14 @@ function App() {
 
     if (answer === null) return
 
-    if (answer === imageData.word)
+    if (answer.toLowerCase() === imageData.word.toLowerCase())
       console.log(true)
     else
       console.log(false)
     console.log(imageData.word)
     inputRefAnswer.current.value = null
-    //
   }
 
-  function submit() {
-    console.log(imageData)
-  }
 }
 
 export default App;
