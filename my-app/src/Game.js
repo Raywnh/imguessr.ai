@@ -23,7 +23,7 @@ function game(props) {
           width="96"
           visible={true}
         /> */}
-        <img src={props.imageData.link}></img>
+        <img id="generatedImage" src={props.imageData.link}></img>
         </div>
         <div className="text-container">
           <label className="text"> your guess here:</label>
