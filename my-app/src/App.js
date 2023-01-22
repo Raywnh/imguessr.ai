@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Image from "./components/Image";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Game from "./Game";
 
 function App() {
@@ -9,7 +9,13 @@ function App() {
   const [imageData, setImageData] = useState({});
   const inputRefAnswer = useRef();
   const [pages, setPages] = useState(0);
-
+  const [backGroundColor, setbackGroundColor] = useState("")
+  
+  useEffect(() => {
+    
+    
+  }, [backGroundColor])
+  
   return (
     <div>
       {/* Header */}
@@ -51,7 +57,7 @@ function App() {
                   Normal
                 </button>
                 <p> or </p>
-                <button className="button sage">
+                <button className="button sage" onClick={goToHard}>
                   Extremely Hard
                 </button>
               </div>
@@ -114,10 +120,21 @@ function App() {
 
     if (answer === null) return
 
-    if (answer.toLowerCase() === imageData.word.toLowerCase())
+    if (answer.toLowerCase() === imageData.word.toLowerCase()) {
       console.log(true)
-    else
+      document.body.style.backgroundColor = 'rgb(' + 114 + ',' + 214 + ',' + 140 + ')'
+
+      setTimeout(() => {
+        document.body.style.backgroundColor = "white"
+      }, 2000)
+    }
+    else {
       console.log(false)
+      document.body.style.backgroundColor = 'rgb(' + 209 + ',' + 92 + ',' + 84 + ')'
+      setTimeout(() => {
+        document.body.style.backgroundColor = "white"
+      }, 2000)
+    }
     console.log(imageData.word)
     inputRefAnswer.current.value = null
   }
