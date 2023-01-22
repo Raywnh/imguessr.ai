@@ -3,12 +3,7 @@ import "./App.css";
 function game(props) {
   return (
     <div>
-      <header>
-        <meta charset="UTF-8" />
-        <title>Game</title>
-      </header>
-
-      <body className="gamePage">
+      <div className="gamePage">
         <button
           className="button dark-yellow padding-large large margin"
           id="normalButton"
@@ -16,16 +11,18 @@ function game(props) {
         >
           Go Back
         </button>
+        <button className="start-button" onClick={props.onStart}>Start</button>
 
-        <div className="realGame"> image here
+        <div className="realGame">
+        <img src={props.imageData.link}></img>
         </div>
 
-        <form>
+        <div className="text-container">
           <label for="text"> your guess here:</label>
-          <input className="textInput" type="text" id="text" name="text" size="30" />
-        </form>
-
-      </body>
+          <input ref={props.inputRefAnswer} className="textInput" type="text" name="text" size="30" />
+          <button onClick={props.onSubmit} className="answer-button">Enter</button>
+        </div>
+      </div>
     </div>
   );
 }

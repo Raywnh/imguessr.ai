@@ -40,7 +40,7 @@ app.get("/image", async (req, res) => {
   const response = await openai.createImage({
     prompt: randomWord,
     n: 1,
-    size: "1024x1024",
+    size: "256x256",
   });
   
   // Send back image url

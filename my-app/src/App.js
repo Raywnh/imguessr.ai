@@ -14,7 +14,7 @@ function App() {
     <div>
       {/* Header */}
       <header className="container green center">
-        <img src="http://localhost:3000/imguessr-header-banner.png" alt="The banner of the website" />
+        <img src={require('./assets/imguessr-header-banner.png')} alt="The banner of the website" />
         <p className="xlarge">Choose your difficulty:</p>
         <button
           className="button dark-yellow padding-large large margin"
@@ -74,7 +74,8 @@ function App() {
           </footer>
         </div>
       ) : (
-        <Game goBack={goBack}></Game>
+        <Game goBack={goBack} onSubmit={onSubmit} inputRefAnswer={inputRefAnswer}
+              onStart={onStart} imageData={imageData}></Game>
       )}
     </div>
   );
@@ -82,15 +83,28 @@ function App() {
   function goBack() {
     setPages(0)
   }
-  
+
   function goToNormal() {
     setPages(1);
   }
-  async function onSubmit() {
+
+  async function onStart() {
     
     await fetch('/image').then((res) => res.json()
     ).then ((data) => setImageData(data))
 
+  }
+  function onSubmit() {
+    const answer = inputRefAnswer.current.value
+
+    if (answer === null) return
+
+    if (answer === imageData.word)
+      console.log(true)
+    else
+      console.log(false)
+    console.log(answer)
+    inputRefAnswer.current.value = null
     //
   }
 
