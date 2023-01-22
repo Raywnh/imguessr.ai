@@ -3,11 +3,6 @@ import "./App.css";
 function game(props) {
   return (
     <div>
-      <header>
-        <meta charset="UTF-8" />
-        <title>Game</title>
-      </header>
-
       <body>
         <button
           className="button dark-yellow padding-large large margin"
