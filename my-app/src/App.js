@@ -19,7 +19,7 @@ function App() {
       </div>
 
       {/* First Grid */}
-      {pages == 0 ? (
+      {pages === 0 ? (
         <div className="row-padding padding-64 container sage main">
           <div className="content">
             <div className="twothird mustard padding-16">
