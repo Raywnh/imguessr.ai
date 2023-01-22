@@ -9,12 +9,8 @@ function App() {
   const [imageData, setImageData] = useState({});
   const inputRefAnswer = useRef();
   const [pages, setPages] = useState(0);
-  const [backGroundColor, setbackGroundColor] = useState("")
-  
-  useEffect(() => {
-    
-    
-  }, [backGroundColor])
+  const [started, setStarted] = useState(false)
+  const [images, setImages] = useState([])
   
   return (
     <div>
@@ -91,7 +87,7 @@ function App() {
         </div>
       ) : (
         <Game goBack={goBack} onSubmit={onSubmit} inputRefAnswer={inputRefAnswer}
-              onStart={onStart} imageData={imageData} pages={pages}></Game>
+              onStart={onStart} imageData={imageData} pages={pages} started={started}></Game>
       )}
     </div>
   );
@@ -109,10 +105,29 @@ function App() {
   }
 
   async function onStart() {
-   
-    await fetch('/image/' + pages, {
-    }).then((res) => res.json()
-    ).then ((data) => setImageData(data))
+    setStarted(!started)
+    
+    if (!started) {
+      let imageCount = 0
+
+      while (imageCount < 10) {
+        
+        await fetch('/image/' + pages, {
+        }).then((res) => res.json()
+        ).then ((data) => setImageData(data))
+        
+        setImages(oldImages => {return [...oldImages, imageData.link]})
+        
+        setTimeout(() => {
+          imageCount++
+          console.log(images)
+        }, 2000)
+      
+      }
+    }
+    else {
+      window.location.reload(false)
+    }
 
   }
   function onSubmit() {
@@ -139,9 +154,6 @@ function App() {
     inputRefAnswer.current.value = null
   }
 
-  function submit() {
-    console.log(imageData);
-  }
 }
 
 export default App;

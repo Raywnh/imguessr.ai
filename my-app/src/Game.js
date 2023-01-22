@@ -4,7 +4,7 @@ function game(props) {
   return (
     <div>
       <div className="gamePage sage">
-        <div class=" mustard padding-16 content">   
+        <div className=" mustard padding-16 content">   
         <button
           className="button sage padding-large large margin"
           id="normalButton"
@@ -14,7 +14,7 @@ function game(props) {
         </button>
         
         {(props.pages===1)? (<h1>Normal Mode</h1>) : ((props.pages===2)? <h1>Hard Mode</h1> : <></>)}
-        <button className="start-button sage button" onClick={props.onStart}>Start</button>
+        <button className="start-button sage button" onClick={props.onStart}>{!props.started? <h1>Start</h1> : <h1>End</h1>}</button>
         <div className="realGame">
         {/* <RotatingLines
           strokeColor="grey"
