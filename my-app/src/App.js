@@ -146,12 +146,12 @@ function App() {
     if (answer === null) return
 
     setAnswered(true)
-
     if (images[imagePointer].word && answer.toLowerCase() === images[imagePointer].word.toLowerCase()) {
       console.log(true)
 
       
-      setScore(score + 1)      
+      setScore(score + 1)
+      
 
       document.getElementsByClassName("gamePage")[0].classList.add("green");
 
