@@ -871,6 +871,7 @@ footer{
 
 .textInput{
   border-radius: 6.25em;
+  margin-top: 100px;
 }
 .textInput::placeholder{
   font-size: 18px;
