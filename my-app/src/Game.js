@@ -11,6 +11,7 @@ function game(props) {
         >
           Go Back
         </button>
+        
         {(props.pages===1)? (<h1>Normal Mode</h1>) : ((props.pages===2)? <h1>Hard Mode</h1> : <></>)}
         <button className="start-button" onClick={props.onStart}>Start</button>
         <div className="realGame">

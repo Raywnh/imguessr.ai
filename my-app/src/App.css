@@ -741,7 +741,6 @@ a {
     height: 256px;
     padding: 20px;
     box-sizing: border-box;
-    border: solid 1px black;
     display: flex;
     flex-direction: column;
     
