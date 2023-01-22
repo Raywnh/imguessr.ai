@@ -14,7 +14,8 @@ function App() {
       <header className="container red center">
         <h1 className="margin jumbo">IMGUESSR.io</h1>
         <p className="xlarge">Choose your difficulty:</p>
-        <button className="button dark-yellow padding-large large margin-top">Normal</button>
+        <button className="button dark-yellow padding-large large margin-top"
+        id="normalButton">Normal</button>
         <button className="button dark-yellow padding-large large margin-top">Extremely Hard</button>
       </header>
 
@@ -35,11 +36,8 @@ function App() {
 
         {/* Footer */}
         <footer className="container padding-64 center opacity">
-          <p>Made by
-            <a href="https://github.com/rayzhou4" target="_blank">Ray Z</a> · 
-            <a href="https://github.com/Raywnh">Ray H</a> ·
-            <a href="https://github.com/migies12">Miguel M</a> ·  
-            <a href="https://github.com/AndyJLi0">Andy L</a>
+          <p>
+            Made by <a href="https://github.com/rayzhou4" target="_blank">Ray Z</a> · <a href="https://github.com/Raywnh" target="_blank">Ray H</a> · <a href="https://github.com/migies12"  target="_blank">Miguel M</a> · <a href="https://github.com/AndyJLi0"  target="_blank">And L</a>
           </p>
         </footer>
       </div>
