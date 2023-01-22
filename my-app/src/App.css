@@ -198,13 +198,14 @@ h6 {
 .monospace {
   font-family: monospace;
 }
+p,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Segoe UI", Arial, sans-serif;
+font-family: Comic Sans MS;
   font-weight: 400;
   margin: 10px 0;
 }
@@ -406,8 +407,7 @@ a {
   .col.m7 {
     width: 58.33333%;
   }
-  .col.m8,
-  .twothird {
+  .col.m8,{
     width: 66.66666%;
   }
   .col.m9,
@@ -708,7 +708,19 @@ a {
 .green,
 .hover-green:hover {
   color: #fff !important;
-  background-color: #44af69 !important;
+  
+  background-color: #3A6B35 !important;
+}
+.sage,
+.hover-sage:hover{
+    color: #000 !important;
+    background-color: #71a7c8;
+}
+
+.mustard,
+.hover-mustard:hover{
+    color: #000 !important;
+    background-color: #E3B448;
 }
 .black,
 .hover-black:hover {
@@ -766,3 +778,64 @@ a {
     margin-bottom: 25px;
   }
   
+.button {
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: 5px;
+    font-family: Comic Sans MS
+}
+.header {
+    background-color: #CCF381;
+    position: absolute;
+    padding-bottom: 10px;
+}
+
+#title {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+.twothird{
+    
+    margin: 0;
+    border-radius: 7px;
+    text-align: center;
+    font-family: Comic Sans MS
+
+}
+#content{
+    background-color: #4831D4;
+    height: 75%;
+    position: relative;
+    text-align: center;
+    
+}
+#difficulty{
+    background-color: #bfe57a;
+    width: 40%;
+    border-radius: 4px;
+    text-align: center;
+    margin: 0px ;
+    display: flexbox;
+}
+#root{
+    display: block;
+    text-align: center;
+}
+.container{
+    height: 100%;
+    
+}
+#logo{
+    height: 45px;
+    width: 45px;
+    padding: 5px;
+}
+footer{
+    display: flex;
+    flex-direction:row;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
