@@ -37,10 +37,16 @@ const Word = require("./models/words")
 app.get("/image/:mode", async (req, res) => {
   var random = Math.floor(Math.random() * words.length)
   var randomAdj = Math.floor(Math.random() * adjs.length)
-  var randomWord = adjs[randomAdj] + ' ' + words[random]
-
   // Get the prompt from the request
   // Generate image from prompt
+  let randomWord
+  var mode = req.params.mode
+  
+  if (mode == 1) 
+    randomWord = words[random]
+  else 
+    randomWord = adjs[randomAdj] + ' ' + words[random]
+
   const response = await openai.createImage({
     prompt: randomWord,
     n: 1,

@@ -95,13 +95,6 @@ function App() {
   async function onStart() {
    
     await fetch('/image/' + pages, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        mode: pages
-      })
     }).then((res) => res.json()
     ).then ((data) => setImageData(data))
 
