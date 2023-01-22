@@ -103,7 +103,7 @@ function App() {
       console.log(true)
     else
       console.log(false)
-    console.log(answer)
+    console.log(imageData.word)
     inputRefAnswer.current.value = null
     //
   }
