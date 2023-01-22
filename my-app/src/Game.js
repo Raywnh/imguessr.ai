@@ -1,7 +1,18 @@
 import './Game.css';
 
-function app(){
+function game(){
     return (
-        <div>Hello</div>
+        <div>
+        <header>
+        <meta charset="UTF-8"/>
+        <title>Game</title>
+      </header>
+
+      <body>
+        hello
+      </body>
+      </div>
     )
 };
+
+export default game
