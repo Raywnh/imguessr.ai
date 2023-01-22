@@ -14,7 +14,7 @@ function App() {
     <div>
       {/* Header */}
       <header className="container green center">
-        <h1 className="margin jumbo">IMGUESSR.io</h1>
+        <img src="http://localhost:3000/imguessr-header-banner.png" alt="The banner of the website" />
         <p className="xlarge">Choose your difficulty:</p>
         <button
           className="button dark-yellow padding-large large margin"
