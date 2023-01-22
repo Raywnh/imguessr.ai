@@ -26,7 +26,7 @@ function game(props) {
         <img id="generatedImage" src={props.imageData.link}></img>
         </div>
         <div className="text-container">
-          <label className="text"> your guess here:</label>
+          <label className="text comicSans" > your guess here:</label>
           <input ref={props.inputRefAnswer} className="textInput" type="text" name="text" size="30" />
           <button onClick={props.onSubmit} className="answer-button button sage">Enter</button>
         </div>
