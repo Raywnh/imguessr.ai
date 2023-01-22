@@ -6,18 +6,13 @@ function game(props) {
       {/* Game Grid */}
       <div className="gamePage sage">
         <div className=" mustard padding-16 content" id="game-box">   
-        <button
-          className="button sage padding-large large margin"
-          id="normalButton"
-          onClick={props.goBack}
-        >
-          Go Back
-        </button>
-        
+  
         {(props.pages===1)? (<h1>Normal Mode</h1>) : ((props.pages===2)? <h1>Hard Mode</h1> : <></>)}
         <button className="start-button sage button" onClick={props.onStart}>{!props.started? <h1>Start</h1> : <h1>End</h1>}</button>
+        <h4>Score: {props.score}   {"out of 10"} </h4>
+        <h4>{!props.ended? <></> : <>GAME OVER</>}</h4>
         <div className="realGame">
-        {props.images[props.imagePointer] === undefined?
+        {!props.started? <></> : props.images[props.imagePointer] === undefined?
           <TailSpin
             height="80"
             width="80"
@@ -27,7 +22,7 @@ function game(props) {
             wrapperStyle={{}}
             wrapperClass=""
             visible={true}
-            clasName="spinner"/> : <img id="generatedImage" src={props.images[props.imagePointer].link}></img>}
+            className="spinner"/> : <img id="generatedImage" src={props.images[props.imagePointer].link}></img>}
         </div>
         <div className="text-container">
           <label className="text comicSans" > your guess here:</label>

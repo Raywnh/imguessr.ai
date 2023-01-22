@@ -11,8 +11,9 @@ function App() {
   const [started, setStarted] = useState(false)
   const [images, setImages] = useState([])
   const [imagePointer, setImagePointer] = useState(0)
-  
-  
+  const [score, setScore] = useState(0)
+  const [ended, setEnded] = useState(false)
+
   return (
     <div>
       {/* Header */}
@@ -83,8 +84,8 @@ function App() {
           </footer>
         </div>
       ) : (
-        <Game goBack={goBack} onSubmit={onSubmit} inputRefAnswer={inputRefAnswer}
-              onStart={onStart} pages={pages} started={started} imagePointer={imagePointer}  images={images}></Game>
+        <Game onSubmit={onSubmit} inputRefAnswer={inputRefAnswer}
+              onStart={onStart} pages={pages} started={started} imagePointer={imagePointer} images={images} score={score} ended={ended}></Game>
       )}
     </div>
   );
@@ -97,9 +98,7 @@ function App() {
     setPages(1);
   }
   // function that brings user from either game mode back to the landing page (menu page)
-  function goBack() {
-    setPages(0);
-  }
+ 
   // asynchornous function that gives out up to 10 images, and at that point, it will restart the game automatically
   async function onStart() {
     setStarted(!started); // change started from false to true, or true to false
@@ -113,8 +112,6 @@ function App() {
     }
 
   }
-
-
 
   async function generate() {
     let count = 1
@@ -131,8 +128,12 @@ function App() {
       await fetch('/image/' + pages, {
       }).then((res) => res.json()
       ).then ((data) => setImages((oldImages) => [...oldImages, data]))
-      
     }
+    setTimeout(() => {
+      setEnded(true)
+      setImages([])
+    }, 5000)
+
   }
   // function to take in user input to compare with the image's word value, 
   // if true: signal correct by changing background to green,
@@ -144,6 +145,11 @@ function App() {
 
     if (images[imagePointer].word && answer.toLowerCase() === images[imagePointer].word.toLowerCase()) {
       console.log(true)
+
+      
+      setScore(score + 1)
+       
+      
 
       document.getElementsByClassName("gamePage")[0].classList.add("green");
 
