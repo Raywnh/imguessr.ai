@@ -84,7 +84,7 @@ function App() {
         </div>
       ) : (
         <Game goBack={goBack} onSubmit={onSubmit} inputRefAnswer={inputRefAnswer}
-              onStart={onStart} pages={pages} started={started} test={test} imagePointer={imagePointer}  images={images}></Game>
+              onStart={onStart} pages={pages} started={started} imagePointer={imagePointer}  images={images}></Game>
       )}
     </div>
   );
