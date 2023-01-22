@@ -123,7 +123,7 @@ function App() {
       setTimeout(() => {
         count++
         setImagePointer(count)
-      }, 5000)
+      }, 7000)
 
       await fetch('/image/' + pages, {
       }).then((res) => res.json()
@@ -132,7 +132,7 @@ function App() {
     setTimeout(() => {
       setEnded(true)
       setImages([])
-    }, 5000)
+    }, 10000)
 
   }
   // function to take in user input to compare with the image's word value, 
