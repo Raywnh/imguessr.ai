@@ -3,6 +3,7 @@ import { RotatingLines} from 'react-loader-spinner'
 function game(props) {
   return (
     <div>
+      {/* Game Grid */}
       <div className="gamePage sage">
         <div className=" mustard padding-16 content">   
         <button onClick={props.test}>adf</button>
@@ -26,10 +27,11 @@ function game(props) {
           visible={true}/> : <img id="generatedImage" src={props.images[props.imagePointer].link}></img>}
         </div>
         <div className="text-container">
-          <label className="text"> your guess here:</label>
+          <label className="text comicSans" > your guess here:</label>
           <input ref={props.inputRefAnswer} className="textInput" type="text" name="text" size="30" />
           <button onClick={props.onSubmit} className="answer-button button sage">Enter</button>
         </div>
+        {/* Footer */}
         <footer className="container padding-32 center opacity">
             <p>Made by{"  "} </p>
               
