@@ -1,6 +1,7 @@
-import './Game.css';
+import './App.css';
 
 function game(){
+
     return (
         <div>
         <header>
@@ -9,10 +10,12 @@ function game(){
       </header>
 
       <body>
-        hello
+        <button className="button dark-yellow padding-large large margin"
+        id="normalButton" >go back pls</button>
       </body>
       </div>
     )
+  
 };
 
 export default game
