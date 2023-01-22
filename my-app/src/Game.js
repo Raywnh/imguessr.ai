@@ -8,17 +8,22 @@ function game() {
         <title>Game</title>
       </header>
 
-      <body>
+      <body className="gamePage">
         <button
           className="button dark-yellow padding-large large margin"
           id="normalButton"
         >
           go back pls
         </button>
+
+        <div className="realGame"> image here
+        </div>
+
         <form>
           <label for="text"> your guess here:</label>
           <input className="textInput" type="text" id="text" name="text" size="30" />
         </form>
+
       </body>
     </div>
   );
