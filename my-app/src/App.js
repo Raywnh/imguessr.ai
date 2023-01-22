@@ -5,11 +5,11 @@ import React, { useRef, useState } from "react";
 import Game from "./Game";
 
 function App() {
-  // Fetch image url and render it
-  const [image, setImage] = useState("");
+  // Fetch image url and render it 
+  const [imageData, setImageData] = useState({});
   const inputRefAnswer = useRef();
-  const [pages, setPages] = useState(0);
-
+  const [pages, setPages] = useState(0)
+ 
   return (
     <div>
       {/* Header */}
@@ -74,15 +74,28 @@ function App() {
           </footer>
         </div>
       ) : (
-        <Game></Game>
+        <Game goBack={goBack}></Game>
       )}
     </div>
   );
+
+  function goBack() {
+    setPages(0)
+  }
+  
   function goToNormal() {
     setPages(1);
   }
-  function onSubmit() {
-    const answer = inputRefAnswer.current.value;
+  async function onSubmit() {
+    
+    await fetch('/image').then((res) => res.json()
+    ).then ((data) => setImageData(data))
+
+    //
+  }
+
+  function submit() {
+    console.log(imageData)
   }
 }
 
