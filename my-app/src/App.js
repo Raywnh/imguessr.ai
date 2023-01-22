@@ -1,17 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
 import Image from './components/Image';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Game from './Game'
 
 function App() {
   // Fetch image url and render it 
-  const [image, setImage] = useState("");
+  const [imageData, setImageData] = useState({});
   const inputRefAnswer = useRef();
   const [pages, setPages] = useState(0)
-
+ 
   return (
       <div>
+      <button onClick={onSubmit}>click</button>
+      <button onClick={submit}>click1</button>
       {/* Header */}
       <header className="container red center">
         <h1 className="margin jumbo">IMGUESSR.io</h1>
@@ -48,12 +50,16 @@ function App() {
   function goToNormal() {
     setPages(1)
   }
-  function onSubmit() {
-    const answer = inputRefAnswer.current.value;
+  async function onSubmit() {
     
-    // Fetch the correct answer from backend 
+    await fetch('/image').then((res) => res.json()
+    ).then ((data) => setImageData(data))
 
     //
+  }
+
+  function submit() {
+    console.log(imageData)
   }
 }
 
