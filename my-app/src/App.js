@@ -29,13 +29,12 @@ function App() {
             <div className="twothird mustard padding-16">
               <h1>How to Play the Game!</h1>
               <p className="padding-16">
-                Welcome to IMGUESSR.IO, a game that utilizes DALL-E 2 By OpenAI
-                to generate random images. DALL_E 2 has gone rogue and is
-                generating random images without your command. Your task is to
-                guess the prompt that DALL-E was given in order to generate its
-                image.! All difficulties give you 60 seconds to guess the image,
-                with new images being added every 15 seconds for extra help.
-                Guess the prompt in 60 seconds to win!
+               Welcome to IMGUESSR.IO, a game that utilizes DALL•E 2 By OpenAI
+                to generate random images. DALL•E 2 has gone rogue and is
+                generating random images without your command! Your task is to
+                guess the prompt that DALL•E 2 was given before the prompt
+                switches, or you lose. All difficulties give you 6 seconds to guess
+                the prompt. GOOD LUCK!!!
               </p>
               <h5 className="padding-16">
                 <strong>Normal</strong> - 1 word prompt for fun, easy, and
@@ -144,21 +143,24 @@ function App() {
 
     if (images[imagePointer].word && answer.toLowerCase() === images[imagePointer].word.toLowerCase()) {
       console.log(true)
-      document.body.style.backgroundColor = 'rgb(' + 114 + ',' + 214 + ',' + 140 + ')'
+
+      document.getElementsByClassName("gamePage")[0].classList.add("green");
 
       setTimeout(() => {
-        document.getElementsByClassName("gamePage")[0].classList.add("sage");
         document.getElementsByClassName("gamePage")[0].classList.remove("green");
+        document.getElementsByClassName("gamePage")[0].classList.add("sage");
+
       }, 2000);
     } else {
       console.log(false);
       // change background from sage (blue) to red
-      document.getElementsByClassName("gamePage")[0].classList.add("red");
-      document.getElementsByClassName("gamePage")[0].classList.remove("sage");
       // after 2s, change back to default background (sage/blue)
+      document.getElementsByClassName("gamePage")[0].classList.add("red");
+
       setTimeout(() => {
-        document.getElementsByClassName("gamePage")[0].classList.add("sage");
         document.getElementsByClassName("gamePage")[0].classList.remove("red");
+        document.getElementsByClassName("gamePage")[0].classList.add("sage");
+
       }, 2000);
     }
     console.log(images[imagePointer].word)
