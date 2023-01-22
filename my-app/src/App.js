@@ -13,6 +13,7 @@ function App() {
   const [imagePointer, setImagePointer] = useState(0)
   const [score, setScore] = useState(0)
   const [ended, setEnded] = useState(false)
+  const [answered, setAnswered] = useState(false)
 
   return (
     <div>
@@ -85,7 +86,7 @@ function App() {
         </div>
       ) : (
         <Game onSubmit={onSubmit} inputRefAnswer={inputRefAnswer}
-              onStart={onStart} pages={pages} started={started} imagePointer={imagePointer} images={images} score={score} ended={ended}></Game>
+              onStart={onStart} pages={pages} started={started} imagePointer={imagePointer} images={images} score={score} ended={ended} answered={answered}></Game>
       )}
     </div>
   );
@@ -121,6 +122,7 @@ function App() {
       ).then ((data) => setImages((oldImages) => [...oldImages, data]))
       
       setTimeout(() => {
+        setAnswered(false)
         count++
         setImagePointer(count)
       }, 7000)
@@ -143,13 +145,13 @@ function App() {
 
     if (answer === null) return
 
+    setAnswered(true)
+
     if (images[imagePointer].word && answer.toLowerCase() === images[imagePointer].word.toLowerCase()) {
       console.log(true)
 
       
-      setScore(score + 1)
-       
-      
+      setScore(score + 1)      
 
       document.getElementsByClassName("gamePage")[0].classList.add("green");
 

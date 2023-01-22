@@ -11,6 +11,7 @@ function game(props) {
         <button className="start-button sage button" onClick={props.onStart}>{!props.started? <h1>Start</h1> : <h1>End</h1>}</button>
         <h4>Score: {props.score}   {"out of 10"} </h4>
         <h4>{!props.ended? <></> : <>GAME OVER</>}</h4>
+        <h4>{!props.answered? <></> : <>{props.images[props.imagePointer].word}</>}</h4>
         <div className="realGame">
         {!props.started? <></> : props.images[props.imagePointer] === undefined?
           <TailSpin
