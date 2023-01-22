@@ -1,6 +1,6 @@
 import "./App.css";
 
-function game() {
+function game(props) {
   return (
     <div>
       <header>
@@ -12,8 +12,9 @@ function game() {
         <button
           className="button dark-yellow padding-large large margin"
           id="normalButton"
+          onClick={props.goBack}
         >
-          go back pls
+          Go Back
         </button>
         <form>
           <label for="text"> your guess here:</label>

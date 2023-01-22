@@ -74,10 +74,15 @@ function App() {
           </footer>
         </div>
       ) : (
-        <Game></Game>
+        <Game goBack={goBack}></Game>
       )}
     </div>
   );
+
+  function goBack() {
+    setPages(0)
+  }
+  
   function goToNormal() {
     setPages(1);
   }
