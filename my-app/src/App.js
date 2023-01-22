@@ -9,15 +9,17 @@ function App() {
   const [imageData, setImageData] = useState({});
   const inputRefAnswer = useRef();
   const [pages, setPages] = useState(0);
-  const [started, setStarted] = useState(false)
-  const [images, setImages] = useState([])
-  
+  const [started, setStarted] = useState(false);
+  const [images, setImages] = useState([]);
+
   return (
     <div>
       {/* Header */}
       <div className="container green center">
-        <img src={require('./assets/imguessr-header-banner.png')} alt="The banner of the website" />
-        
+        <img
+          src={require("./assets/imguessr-header-banner.png")}
+          alt="The banner of the website"
+        />
       </div>
 
       {/* First Grid */}
@@ -28,11 +30,12 @@ function App() {
               <h1>How to Play the Game!</h1>
               <p className="padding-16">
                 Welcome to IMGUESSR.IO, a game that utilizes DALL-E 2 By OpenAI
-                to generate random images. DALL_E 2 has gone rogue and is generating random images without your command. 
-                Your task is to guess the prompt that DALL-E was given in order to generate its image.! All difficulties
-                give you 60 seconds to guess the image, with new images being
-                added every 15 seconds for extra help. Guess the prompt in 60
-                seconds to win!
+                to generate random images. DALL_E 2 has gone rogue and is
+                generating random images without your command. Your task is to
+                guess the prompt that DALL-E was given in order to generate its
+                image.! All difficulties give you 60 seconds to guess the image,
+                with new images being added every 15 seconds for extra help.
+                Guess the prompt in 60 seconds to win!
               </p>
               <h5 className="padding-16">
                 <strong>Normal</strong> - 1 word prompt for fun, easy, and
@@ -42,58 +45,59 @@ function App() {
                 <strong>Extremely Hard</strong> - 2 word prompt that is
                 completely random. For the brave.
               </h5>
-              
+
               <p className="xlarge">Choose your difficulty:</p>
               <div>
-                    <button
-                  className="button sage"
-                  onClick={goToNormal}
-                >
+                <button className="button sage" onClick={goToNormal}>
                   Normal
                 </button>
                 <p> or </p>
-                <button className="button sage"
-                onClick={goToHard}>
+                <button className="button sage" onClick={goToHard}>
                   Extremely Hard
                 </button>
               </div>
             </div>
-            </div>
+          </div>
           {/* Footer */}
           <footer className="container padding-32 center opacity">
             <p>Made by{"  "} </p>
-              
-              <a href="https://github.com/rayzhou4" target="_blank">
-              <img src={require('./assets/git.png')} alt="Ray Z" id="logo"/>
+            <a href="https://github.com/rayzhou4" target="_blank">
+              <img src={require("./assets/git.png")} alt="Ray Z" id="logo" />
               <p>Ray Z</p>
-              </a>{" "}
-              ·{" "}
-              <a href="https://github.com/Raywnh" target="_blank">
-              <img src={require('./assets/git.png')} alt="Ray Z" id="logo"/>
+            </a>{" "}
+            ·{" "}
+            <a href="https://github.com/Raywnh" target="_blank">
+              <img src={require("./assets/git.png")} alt="Ray Z" id="logo" />
               <p>Ray H</p>
-              </a>{" "}
-              ·{" "}
-              <a href="https://github.com/migies12" target="_blank">
-              <img src={require('./assets/git.png')} alt="Ray Z" id="logo"/>
+            </a>{" "}
+            ·{" "}
+            <a href="https://github.com/migies12" target="_blank">
+              <img src={require("./assets/git.png")} alt="Ray Z" id="logo" />
               <p>Miguel M</p>
-              </a>{" "}
-              ·{" "}
-              <a href="https://github.com/AndyJLi0" target="_blank">
-              <img src={require('./assets/git.png')} alt="Ray Z" id="logo"/>
+            </a>{" "}
+            ·{" "}
+            <a href="https://github.com/AndyJLi0" target="_blank">
+              <img src={require("./assets/git.png")} alt="Ray Z" id="logo" />
               <p>Andy L</p>
-              </a>
-
+            </a>
           </footer>
         </div>
       ) : (
-        <Game goBack={goBack} onSubmit={onSubmit} inputRefAnswer={inputRefAnswer}
-              onStart={onStart} imageData={imageData} pages={pages} started={started}></Game>
+        <Game
+          goBack={goBack}
+          onSubmit={onSubmit}
+          inputRefAnswer={inputRefAnswer}
+          onStart={onStart}
+          imageData={imageData}
+          pages={pages}
+          started={started}
+        ></Game>
       )}
     </div>
   );
-      
+
   function goToHard() {
-    setPages(2)
+    setPages(2);
   }
 
   function goBack() {
@@ -105,55 +109,58 @@ function App() {
   }
 
   async function onStart() {
-    setStarted(!started)
-    
+    setStarted(!started);
+
     if (!started) {
-      let imageCount = 0
+      let imageCount = 0;
 
       while (imageCount < 10) {
-        
-        await fetch('/image/' + pages, {
-        }).then((res) => res.json()
-        ).then ((data) => setImageData(data))
-        
-        setImages(oldImages => {return [...oldImages, imageData.link]})
-        
-        setTimeout(() => {
-          imageCount++
-          console.log(images)
-        }, 2000)
-      
-      }
-    }
-    else {
-      window.location.reload(false)
-    }
+        await fetch("/image/" + pages, {})
+          .then((res) => res.json())
+          .then((data) => setImageData(data));
 
+        setImages((oldImages) => {
+          return [...oldImages, imageData.link];
+        });
+
+        setTimeout(() => {
+          imageCount++;
+          console.log(images);
+        }, 2000);
+      }
+    } else {
+      window.location.reload(false);
+    }
   }
   function onSubmit() {
-    const answer = inputRefAnswer.current.value
+    const answer = inputRefAnswer.current.value;
 
-    if (answer === null) return
+    if (answer === null) return;
 
     if (answer.toLowerCase() === imageData.word.toLowerCase()) {
-      console.log(true)
-      document.body.style.backgroundColor = 'rgb(' + 114 + ',' + 214 + ',' + 140 + ')'
+      console.log(true);
+
+      document.getElementsByClassName("gamePage")[0].classList.add("green");
+      document.getElementsByClassName("gamePage")[0].classList.remove("sage");
 
       setTimeout(() => {
-        document.body.style.backgroundColor = "white"
-      }, 2000)
-    }
-    else {
-      console.log(false)
-      document.body.style.backgroundColor = 'rgb(' + 209 + ',' + 92 + ',' + 84 + ')'
+        document.getElementsByClassName("gamePage")[0].classList.add("sage");
+        document.getElementsByClassName("gamePage")[0].classList.remove("green");
+      }, 2000);
+    } else {
+      console.log(false);
+
+      document.getElementsByClassName("gamePage")[0].classList.add("red");
+      document.getElementsByClassName("gamePage")[0].classList.remove("sage");
+
       setTimeout(() => {
-        document.body.style.backgroundColor = "white"
-      }, 2000)
+        document.getElementsByClassName("gamePage")[0].classList.add("sage");
+        document.getElementsByClassName("gamePage")[0].classList.remove("red");
+      }, 2000);
     }
-    console.log(imageData.word)
-    inputRefAnswer.current.value = null
+    console.log(imageData.word);
+    inputRefAnswer.current.value = null;
   }
-
 }
 
 export default App;
