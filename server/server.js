@@ -15,7 +15,7 @@ var words = ["Turtle", "Garfield", "alligator", "headphones", "wedding dress", "
 
 //var words = ["Plane", "House", "Horse", "Dog", "Cat"]
 
-var adjs = ["green", "red", "blue", "futuristic", "colorful", ""];
+var adjs = ["green", "red", "blue", "futuristic", "colorful", "ugly", "fat", "disgusting", "brown", "hot", "slippery"];
 
 // Set up the server
 app.use(bodyParser.json());

@@ -125,7 +125,7 @@ function App() {
         setAnswered(false)
         count++
         setImagePointer(count)
-      }, 7000)
+      }, 8000)
 
       await fetch('/image/' + pages, {
       }).then((res) => res.json()
