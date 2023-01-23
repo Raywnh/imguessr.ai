@@ -1,2 +1,2 @@
-# nwhacks2023
-this is a message
+# imguessr.io
+Image guessing game with AI generated images
