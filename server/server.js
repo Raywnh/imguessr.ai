@@ -4,7 +4,6 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const mongoose = require("mongoose")
 const app = express();
 
 const configuration = new Configuration({
@@ -22,14 +21,6 @@ var adjs = ["green", "red", "blue", "futuristic", "colorful", ""];
 app.use(bodyParser.json());
 app.use(cors());
 
-
-mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true})
-
-const db = mongoose.connection
-db.on('error', (error) => console.error(error))
-db.once('open', () => console.log("Connected to database"))
-
-app.use(express.json())
 
 const Word = require("./models/words")
 

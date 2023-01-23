@@ -133,7 +133,6 @@ function App() {
     }
     setTimeout(() => {
       setEnded(true)
-      setImages([])
     }, 10000)
 
   }
